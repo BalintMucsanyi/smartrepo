@@ -1,3 +1,5 @@
 esp32 to mqtt broker leírás: https://www.emqx.com/en/blog/esp32-connects-to-the-free-public-mqtt-broker
 
 Esetleg ha kész megcsinálni felhő alapú brókerrel? - https://www.emqx.com/en/mqtt/public-mqtt5-broker
+
+esp32 + sensor to mosquitto  -  https://randomnerdtutorials.com/esp32-mqtt-publish-subscribe-arduino-ide/
