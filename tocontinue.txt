@@ -1,7 +1,8 @@
-esp32 to mqtt broker leírás: https://www.emqx.com/en/blog/esp32-connects-to-the-free-public-mqtt-broker
-
-Esetleg ha kész megcsinálni felhő alapú brókerrel? - https://www.emqx.com/en/mqtt/public-mqtt5-broker
-
-esp32 + sensor to mosquitto  -  https://randomnerdtutorials.com/esp32-mqtt-publish-subscribe-arduino-ide/
-
+Esetleg ha kész megcsinálni felhő alapú brókerrel? - https://www.emqx.com/en/mqtt/public-mqtt5-brokerrel
 esetleges másik megjelenítő felület - https://nodered.org/docs/getting-started/docker
+----------------
+
+- Megcsinálni, hogy host hálózaton legyenek a konténerek
+- Hozzáadni még másik szenzort az esp-hez
+- Grafana dashboardot szebben megcsinálni
+- Grafanának volume-ot csinálni
