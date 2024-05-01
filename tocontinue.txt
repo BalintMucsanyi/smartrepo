@@ -6,3 +6,4 @@ esetleges másik megjelenítő felület - https://nodered.org/docs/getting-start
 - Hozzáadni még másik szenzort az esp-hez
 - Grafana dashboardot szebben megcsinálni
 - Grafanának volume-ot csinálni
+- Starting scriptet csinálni, akár docker-composeban
