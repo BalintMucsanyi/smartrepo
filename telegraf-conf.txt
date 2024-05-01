@@ -1,12 +1,14 @@
 [[inputs.mqtt_consumer]]
-servers = ["tcp://HOST-IP:1883"] # Update to match your broker's address
-topics = ["sensor/humidity", "sensor/temperature"] # Specify topics to subscribe to
-qos = 1 # Quality of Service level
-persistent_session = true # Maintain session across restarts
 
-# Output plugin for InfluxDB v2
+  servers = ["tcp://HOST-IP:1883"]
+  topics = ["sensor/data"]
+  topic_tag = "dht11"
+  qos = 0
+  connection_timeout = "30s"
+  data_format = "json"
+
 [[outputs.influxdb_v2]]
-urls = ["http://HOST-IP:8086"] # Update to match your InfluxDB address
-token = "irj nekem ha kell" # Replace with your InfluxDB API token
-organization = "bme" # Replace with your InfluxDB organization name
-bucket = "influx-bucket" # Replace with your InfluxDB bucket name
+  urls = ["http://HOST-IP:8086"]
+  token = "wTGaBNpZegA_VVGNQztT-OD1ER8zP-_NPcVXhAFIrlYVLsCnHuVy5KJhsvNwqC3a7rOP5PJ1LkalDSk6V8Qo8g=="
+  organization = "ni"
+  bucket = "influxdb-bucket"
