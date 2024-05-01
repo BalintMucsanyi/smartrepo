@@ -1,0 +1,12 @@
+[[inputs.mqtt_consumer]]
+servers = ["tcp://localhost:1883"] # Update to match your broker's address
+topics = ["sensor/humidity", "sensor/temperature"] # Specify topics to subscribe to
+qos = 1 # Quality of Service level
+persistent_session = true # Maintain session across restarts
+
+# Output plugin for InfluxDB v2
+[[outputs.influxdb_v2]]
+urls = ["http://localhost:8086"] # Update to match your InfluxDB address
+token = "irj nekem ha kell" # Replace with your InfluxDB API token
+organization = "bme" # Replace with your InfluxDB organization name
+bucket = "influx-bucket" # Replace with your InfluxDB bucket name
