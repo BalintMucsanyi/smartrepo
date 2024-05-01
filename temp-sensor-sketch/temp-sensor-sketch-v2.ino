@@ -8,11 +8,11 @@
 DHT dht(DHTPIN, DHTTYPE);
 
 // WiFi konstansok
-const char* ssid = "DIGI-EhP3";
-const char* password = "N3M4Pe38";
+const char* ssid = "Mucsphone";
+const char* password = "balinttt";
 
 //mosquitto constants
-const char* mqtt_server = "192.168.100.34"; // Broker's IP inside Docker
+const char* mqtt_server = "192.168.141.88"; // Broker's IP inside Docker
 const int mqtt_port = 1883; // Broker's port
 
 WiFiClient espClient;
@@ -63,26 +63,20 @@ void publishSensorData() {
     float t = dht.readTemperature(); // Read temperature as Celsius
 
     if (isnan(h) || isnan(t)) {
-        Serial.println(F("Failed to read from DHT11 sensor!"));
-        return; // Exit the function if the readings are invalid
+        Serial.println("Failed to read from DHT11 sensor!");
+        return; // Exit if readings are invalid
     }
 
-    // Create MQTT messages
-    char humidityMsg[50];
-    snprintf(humidityMsg, sizeof(humidityMsg), "Humidity: %.2f%%", h);
+    // Create a JSON string in the message buffer
+    char message[100];
+    snprintf(message, sizeof(message), "{\"temperature\": %.2f, \"humidity\": %.2f}", t, h);
 
-    char temperatureMsg[50];
-    snprintf(temperatureMsg, sizeof(temperatureMsg), "Temperature: %.2f°C", t);
-
-    // Publish messages to their respective topics
-    if (!client.publish("sensor/humidity", humidityMsg)) {
-        Serial.println(F("Failed to publish humidity data"));
-    }
-
-    if (!client.publish("sensor/temperature", temperatureMsg)) {
-        Serial.println(F("Failed to publish temperature data"));
+    // Publish the message to the specified topic
+    if (!client.publish("sensor/data", message)) {
+        Serial.println("Failed to publish sensor data");
     }
 }
+
 
 void loop() {
     if (!client.connected()) {
