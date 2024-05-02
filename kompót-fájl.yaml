@@ -1,0 +1,46 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    restart: always
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    networks:
+      - okosvaros
+
+    volumes:
+      - /home/delint/Documents/MSc/okosvaros/cloud_side_project/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+  influxdb2:
+    image: influxdb:2.0
+    restart: always
+    ports:
+      - "8086:8086"
+    networks:
+      - okosvaros
+    volumes:
+      - /home/delint/Documents/MSc/okosvaros/cloud_side_project/influxdb2/:/var/lib/influxdb2
+  telegraf:
+    image: telegraf:latest
+    restart: always
+    volumes:
+      - /home/delint/Documents/MSc/okosvaros/cloud_side_project/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+
+    depends_on:
+      - mosquitto
+      - influxdb2
+    networks:
+      - okosvaros
+  grafana:
+    image: grafana/grafana:latest
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - okosvaros
+    volumes:
+      - grafana_data:/var/lib/grafana
+
+networks:
+  okosvaros:
+volumes:
+  grafana_data:
