@@ -39,8 +39,11 @@ services:
       - okosvaros
     volumes:
       - grafana_data:/var/lib/grafana
+    depends_on:
+      - influxdb2
 
 networks:
   okosvaros:
 volumes:
   grafana_data:
+    driver: local
