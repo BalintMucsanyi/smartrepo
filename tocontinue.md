@@ -13,5 +13,5 @@
 ---
 ### Ha nagyon unatkoznék
 
-- [] LoRa használata: szenzor -> esp ->(LoRa)-> esp -> (IP) -> laptop ?
-- [] felhő alapú bróker ?
+- [ ] LoRa használata: szenzor -> esp ->(LoRa)-> esp -> (IP) -> laptop ?
+- [ ] felhő alapú bróker ?
