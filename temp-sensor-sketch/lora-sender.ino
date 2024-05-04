@@ -61,6 +61,12 @@ void setup() {
     Serial.println("Starting LoRa failed!");
     while (1);
   }
+  //LoRa paraméterek legtávolabbra kommunikáláshoz
+  LoRa.setSpreadingFactor(12); // Set spreading factor to 12 for maximum range
+  LoRa.setSignalBandwidth(125E3); // Set bandwidth to 125 kHz
+  LoRa.setCodingRate4(8); // Set coding rate to 4/8
+  LoRa.setTxPower(20); // Set the transmission power to 20 dBm
+  // LoRa.enableCrc(); // Enable CRC for error checking
   Serial.println("LoRa initialized successfully");
 }
 
@@ -97,5 +103,5 @@ void loop() {
   displaySensorData(t, h, l); // Update the OLED display with new data
   sendLoRaData(t, h, l); // Send data via LoRa
 
-  delay(2000); // Send data every 10 seconds
+  delay(10000); // Send data every 10 seconds
 }
