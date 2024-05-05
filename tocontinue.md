@@ -14,5 +14,5 @@
 ### Ha nagyon unatkoznék
 
 - [x] LoRa használata: szenzor -> esp ->(LoRa)-> esp -> (IP) -> laptop ?
-~~- [ ] felhő alapú bróker ?~~
+- [ ] ~~felhő alapú bróker ?~~
 - [x] OLED panelen is szenzor infók megjelenítése
