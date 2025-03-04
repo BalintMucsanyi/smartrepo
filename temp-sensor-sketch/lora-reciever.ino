@@ -16,7 +16,7 @@
   #define BAND 868E6 // Europe frequency band
 
   const char* ssid = "DIGI-EhP3";
-  const char* password = "N3M4Pe38";
+  const char* password = "[[REDACTED]]";
   const char* mqtt_server = "192.168.100.34";
   const int mqtt_port = 1883;
 
